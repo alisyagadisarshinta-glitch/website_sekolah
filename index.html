@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMK Muhammadiyah Pakem - Sekolah Pusat Keunggulan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff5f7;
+            color: #334155;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* RUNNING TEXT */
+        .top-ticker {
+            background: linear-gradient(90deg, #f43f5e, #fb7185);
+            color: #ffffff;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 8px 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .ticker-text {
+            display: inline-block;
+            padding-left: 100%;
+            animation: jalanTeks 24s linear infinite;
+        }
+
+        @keyframes jalanTeks {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, #be185d, #ec4899);
+            color: white;
+            padding: 20px;
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            background: white;
+            padding: 5px;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-text h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        .header-text p {
+            font-size: 0.88rem;
+            color: #fce7f3;
+        }
+
+        /* NAVBAR */
+        nav {
+            background-color: #9d174d;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 10px rgba(157, 23, 77, 0.2);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            font-size: 0.92rem;
+            font-weight: 500;
+            transition: background 0.3s;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            background-color: #f43f5e;
+        }
+
+        /* HERO SLIDER */
+        .hero-slider-container {
+            position: relative;
+            max-width: 1100px;
+            margin: 25px auto;
+            height: 420px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(157, 23, 77, 0.15);
+            background-color: #1e293b;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        .slide-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.25));
+            z-index: 1;
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            padding: 40px 70px;
+            max-width: 700px;
+        }
+
+        .slide-content h2 {
+            font-size: 2rem;
+            color: #fbbf24;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .slide-content p {
+            font-size: 0.98rem;
+            color: #f8fafc;
+            margin-bottom: 22px;
+            line-height: 1.6;
+        }
+
+        .btn-slider {
+            display: inline-block;
+            background: #db2777;
+            color: white;
+            text-decoration: none;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-slider:hover {
+            background: #be185d;
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.25);
+            color: white;
+            border: none;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .prev-arrow { left: 15px; }
+        .next-arrow { right: 15px; }
+
+        /* SECTION UMUM */
+        section {
+            background: white;
+            margin: 25px auto;
+            padding: 35px;
+            max-width: 1100px;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(244, 63, 94, 0.06);
+        }
+
+        section h2 {
+            color: #be185d;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #fbcfe8;
+            display: inline-block;
+        }
+
+        .section-desc {
+            color: #64748b;
+            margin-bottom: 22px;
+            font-size: 0.95rem;
+        }
+
+        /* SEARCH BAR JURUSAN */
+        .search-box {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 0.95rem;
+            border: 2px solid #fbcfe8;
+            border-radius: 30px;
+            outline: none;
+            margin-bottom: 25px;
+            transition: border-color 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .search-box:focus {
+            border-color: #db2777;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: #fffafb;
+            border: 1px solid #fce7f3;
+            border-radius: 12px;
+            padding: 22px;
+            cursor: pointer;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: #f472b6;
+            background-color: #fdf2f8;
+        }
+
+        .card h3 {
+            color: #9d174d;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .card p {
+            color: #475569;
+            font-size: 0.9rem;
+        }
+
+        /* HALAMAN DETAIL JURUSAN */
+        .page-detail {
+            display: none;
+        }
+
+        .btn-kembali {
+            display: inline-block;
+            background: #9d174d;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-kembali:hover {
+            background: #be185d;
+        }
+
+        .detail-box {
+            background: #fffafb;
+            border: 1px solid #fce7f3;
+            border-radius: 14px;
+            padding: 30px;
+        }
+
+        .detail-box img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 1px solid #fbcfe8;
+        }
+
+        .detail-box p {
+            color: #334155;
+            font-size: 0.98rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* PROFIL & VISI MISI */
+        .visi-box {
+            background: #fdf2f8;
+            border-left: 5px solid #db2777;
+            padding: 18px 22px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .misi-list {
+            margin-left: 20px;
+            color: #475569;
+            line-height: 1.9;
+        }
+
+        /* FAQ ACCORDION */
+        .faq-item {
+            background: #fffafb;
+            border: 1px solid #fce7f3;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 15px 20px;
+            font-weight: 600;
+            color: #9d174d;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover {
+            background: #fdf2f8;
+        }
+
+        .faq-answer {
+            padding: 0 20px 15px 20px;
+            color: #475569;
+            font-size: 0.92rem;
+            display: none;
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* GALERI */
+        .galeri-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .galeri-item {
+            background: #fffafb;
+            border: 1px solid #fce7f3;
+            border-radius: 12px;
+            overflow: hidden;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .galeri-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+
+        .galeri-item p {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #9d174d;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #9d174d, #831843);
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+            margin-top: 40px;
+        }
+
+        .footer-sub {
+            font-size: 0.85rem;
+            color: #fbcfe8;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-3, .galeri-grid {
+                grid-template-columns: 1fr;
+            }
+            .slide-content { padding: 30px 45px; }
+            .hero-slider-container { height: 350px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- RUNNING TEXT -->
+    <div class="top-ticker">
+        <div class="ticker-text">
+            📢 INFO TERKINI: Dibuka Pendaftaran Murid Baru (SPMB) SMK Muhammadiyah Pakem Tahun Ajaran 2026/2027 • Sekolah Pusat Keunggulan & Pesantren Vokasi • Yuk Segera Daftar!
+        </div>
+    </div>
+
+    <!-- HEADER & LOGO BARU -->
+    <header>
+        <div class="header-container">
+            <img src="https://play-lh.googleusercontent.com/8zJMoDpA4GZSPLVWTGBRiYoVM6lZy872VUZXAtcjpwqCFT--57V8eO0cBqJwcODcNmKJEHAlhEM7yF_1sYfHdA=w240-h480-rw" alt="Logo SMK Muhammadiyah Pakem" class="logo">
+            <div class="header-text">
+                <h1>SMK MUHAMMADIYAH PAKEM</h1>
+                <p>Sekolah Pusat Keunggulan & Pesantren Vokasi</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- NAVBAR -->
+    <nav>
+        <a onclick="tampilBeranda()">Beranda</a>
+        <a onclick="tampilBeranda()">Profil & Visi Misi</a>
+        <a onclick="tampilBeranda()">Program Keahlian</a>
+        <a onclick="tampilBeranda()">FAQ</a>
+        <a onclick="tampilBeranda()">Galeri</a>
+        <a onclick="tampilBeranda()">Kontak</a>
+    </nav>
+
+
+    <!-- ========================================== -->
+    <!-- 🏠 HALAMAN UTAMA (BERANDA)                 -->
+    <!-- ========================================== -->
+    <div id="halamanBeranda">
+
+        <!-- HERO SLIDER -->
+        <div class="hero-slider-container">
+            <div class="slide active" style="background-image: url('https://klassmu.umy.ac.id/smkmupa/pluginfile.php/1/theme_lambda/slide1image/1638230046/gedung.jpeg');">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <h2>SEKOLAH PUSAT KEUNGGULAN</h2>
+                    <p>Selamat datang di website resmi SMK Muhammadiyah Pakem. Sekolah vokasi unggulan dengan standar industri modern dan fasilitas lengkap.</p>
+                    <a href="#jurusan" class="btn-slider">Lihat Program Keahlian →</a>
+                </div>
+            </div>
+
+            <div class="slide" style="background-image: url('https://klassmu.umy.ac.id/smkmupa/pluginfile.php/1/theme_lambda/slide1image/1638230046/gedung.jpeg');">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <h2>PESANTREN VOKASI</h2>
+                    <p>Menggabungkan pendidikan kejuruan berstandar industri dengan pembentukan akhlak mulia, karakter islami, dan kemandirian siswa.</p>
+                    <a href="#profil" class="btn-slider">Pelajari Profil →</a>
+                </div>
+            </div>
+
+            <button class="slider-arrow prev-arrow" onclick="gantiSlide(-1)">❮</button>
+            <button class="slider-arrow next-arrow" onclick="gantiSlide(1)">❯</button>
+        </div>
+
+        <!-- PROFIL & VISI MISI -->
+        <section id="profil">
+            <h2>Profil, Visi & Misi Sekolah</h2>
+            <p class="section-desc">SMK Muhammadiyah Pakem merupakan Sekolah Pusat Keunggulan (SMK PK) yang mengusung konsep Pesantren Vokasi.</p>
+            
+            <div class="visi-box">
+                <h3>🎯 Visi Sekolah</h3>
+                <p>"Terwujudnya tamatan yang berakhlak mulia, unggul dalam prestasi, terampil dalam teknologi, berjiwa wirausaha, serta berwawasan lingkungan."</p>
+            </div>
+            
+            <h3 style="color: #9d174d; margin-bottom: 10px;">🚀 Misi Sekolah</h3>
+            <ul class="misi-list">
+                <li>Menanamkan nilai-nilai keislaman dan kemuhammadiyahan dalam setiap aktivitas belajar.</li>
+                <li>Menyelenggarakan pembelajaran berbasis proyek (Teaching Factory) sesuai standar industri.</li>
+                <li>Meningkatkan kompetensi lulusan melalui sertifikasi keahlian bersama mitra DUDI.</li>
+            </ul>
+        </section>
+
+        <!-- 6 KARTU JURUSAN + LIVE SEARCH -->
+        <section id="jurusan">
+            <h2>6 Program Keahlian Utama</h2>
+            <p class="section-desc">Ketik nama jurusan pada kolom di bawah untuk mencari dengan cepat, atau klik untuk melihat detail lengkapnya.</p>
+            
+            <input type="text" id="inputCari" class="search-box" placeholder="🔍 Cari jurusan (Contoh: RPL, Animasi, Otomotif...)" onkeyup="cariJurusan()">
+
+            <div class="grid-3" id="daftarJurusan">
+                <div class="card jurusan-card" onclick="bukaDetail('rpl')" data-nama="rekayasa perangkat lunak rpl pemograman website aplikasi mobile game">
+                    <h3>💻 Rekayasa Perangkat Lunak (RPL)</h3>
+                    <p>Pembuatan website, aplikasi mobile, game, dan database. Klik untuk detail...</p>
+                </div>
+                <div class="card jurusan-card" onclick="bukaDetail('animasi')" data-nama="animasi 2d 3d desain karakter film multimedia">
+                    <h3>🎬 Animasi</h3>
+                    <p>Pembuatan animasi 2D/3D, desain karakter, film, dan multimedia kreatif. Klik untuk detail...</p>
+                </div>
+                <div class="card jurusan-card" onclick="bukaDetail('tkr')" data-nama="teknik kendaraan ringan tkr otomotif mobil mesin sasis">
+                    <h3>🚗 Teknik Kendaraan Ringan (TKR)</h3>
+                    <p>Perawatan dan perbaikan mesin mobil, sasis, dan kelistrikan. Klik untuk detail...</p>
+                </div>
+                <div class="card jurusan-card" onclick="bukaDetail('tsm')" data-nama="teknik sepeda motor tsm astra honda motor ahass injeksi">
+                    <h3>🏍️ Teknik Sepeda Motor (TSM)</h3>
+                    <p>Binaan PT. Astra Honda Motor standar AHASS. Klik untuk detail...</p>
+                </div>
+                <div class="card jurusan-card" onclick="bukaDetail('pbs')" data-nama="perbankan syariah pbs keuangan akuntansi islam">
+                    <h3>🏦 Perbankan Syariah (PBS)</h3>
+                    <p>Keuangan, akuntansi, dan perbankan syariah Islam. Klik untuk detail...</p>
+                </div>
+                <div class="card jurusan-card" onclick="bukaDetail('dpib')" data-nama="desain pemodelan informasi bangunan dpib arsitektur gedung rab">
+                    <h3>🏛️ Desain Pemodelan & Informasi Bangunan</h3>
+                    <p>Perencanaan arsitektur bangunan dan konstruksi gedung. Klik untuk detail...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ INTERAKTIF -->
+        <section id="faq">
+            <h2>Tanya Jawab (FAQ)</h2>
+            <p class="section-desc">Pertanyaan yang sering diajukan seputar pendaftaran sekolah.</p>
+            
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question"><span>Bagaimana cara mendaftar sebagai murid baru?</span> <span>▼</span></div>
+                <div class="faq-answer">Pendaftaran dapat dilakukan secara online melalui website resmi atau datang langsung ke kampus SMK Muhammadiyah Pakem di Sleman, Yogyakarta.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question"><span>Apa saja syarat pendaftaran di SMK Muhammadiyah Pakem?</span> <span>▼</span></div>
+                <div class="faq-answer">Syarat umumnya meliputi ijazah/surat kelulusan SMP/sederajat, akta kelahiran, kartu keluarga, serta pas foto terbaru.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question"><span>Apakah tersedia fasilitas asrama untuk konsep Pesantren Vokasi?</span> <span>▼</span></div>
+                <div class="faq-answer">Ya, kami menyediakan fasilitas pembinaan pesantren vokasi yang terintegrasi untuk mendukung pembentukan karakter dan keagamaan peserta didik.</div>
+            </div>
+        </section>
+
+        <!-- GALERI -->
+        <section id="galeri">
+            <h2>Galeri Kegiatan</h2>
+            <div class="galeri-grid">
+                <div class="galeri-item">
+                    <img src="https://smkmuhpakem.sch.id/wp-content/uploads/2025/07/FOR.jpg" alt="FORTASI">
+                    <p>Kegiatan FORTASI</p>
+                </div>
+                <div class="galeri-item">
+                    <img src="https://smkmuhpakem.sch.id/wp-content/uploads/2024/05/WhatsApp-Image-2024-05-30-at-17.19.16-768x576.jpeg" alt="Validasi Kurikulum">
+                    <p>Validasi Kurikulum</p>
+                </div>
+                <div class="galeri-item">
+                    <img src="https://pipjatim.id/wp-content/uploads/2026/10/Kunjungan-Industri-SMK-Muhammadiyah-Pakem.jpg" alt="Kunjungan Industri">
+                    <p>Kunjungan Industri</p>
+                </div>
+                <div class="galeri-item">
+                    <img src="https://smkmuhpakem.sch.id/wp-content/uploads/2025/09/P1270113-1024x683.jpg" alt="Kegiatan Sekolah">
+                    <p>Aktivitas & Praktik Siswa</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- KONTAK -->
+        <section id="kontak">
+            <h2>Kontak Kami</h2>
+            <p><strong>📍 Alamat:</strong> Jl. Pakem - Turi No.23, Area Sawah, Pakembinangun, Kec. Pakem, Kab. Sleman, Yogyakarta</p>
+            <p><strong>📞 WhatsApp / Telepon:</strong> 0858-6561-1145</p>
+        </section>
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- 📖 HALAMAN DETAIL JURUSAN                  -->
+    <!-- ========================================== -->
+    <div id="halamanDetail" class="page-detail">
+        <section>
+            <a class="btn-kembali" onclick="tampilBeranda()">← Kembali ke Beranda</a>
+            <div class="detail-box" id="isiDetailJurusan"></div>
+            <br>
+            <a class="btn-kembali" onclick="tampilBeranda()">← Kembali ke Beranda</a>
+        </section>
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Copyright 2026 &copy; <strong>SMK Muhammadiyah Pakem</strong>. All Rights Reserved.</p>
+        <p class="footer-sub">Dibuat oleh Alisya Gadis (XI RPL) • Praktik Pemrograman Web</p>
+    </footer>
+
+
+    <!-- ========================================== -->
+    <!-- ⚙️ JAVASCRIPT                              -->
+    <!-- ========================================== -->
+    <script>
+        const dataJurusan = {
+            rpl: {
+                judul: "Rekayasa Perangkat Lunak (RPL)",
+                gambar: "https://smkmuhpakem.sch.id/wp-content/uploads/2025/09/WhatsApp-Image-2025-09-03-at-10.27.49-1024x768.jpeg",
+                teks: `Kompetensi Keahlian Rekayasa Perangkat Lunak (RPL) merupakan salah satu program keahlian unggulan di bidang teknologi informasi dan komunikasi. Jurusan ini membekali peserta didik dengan kemampuan merancang, membangun, menguji, hingga memelihara perangkat lunak berupa aplikasi berbasis desktop, web, maupun mobile.<br><br>
+                Pembelajaran di RPL SMK Muhammadiyah Pakem diselaraskan langsung dengan kebutuhan industri software saat ini. Siswa dibekali penguasaan bahasa pemrograman, manajemen basis data (database), serta pembuatan antarmuka (UI/UX) yang interaktif.<br><br>
+                <strong>Peluang Kerja:</strong> Software Developer, Web Programmer, Mobile App Developer, Game Developer, IT Support, Database Administrator, dan Technopreneur.`
+            },
+            animasi: {
+                judul: "Animasi",
+                gambar: "https://smkmuhpakem.sch.id/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-27-at-09.39.49-1024x461.jpeg",
+                teks: `Jurusan Animasi lebih fokus dalam mempelajari teori dan teknik dalam membuat animasi 2D dan 3D, pembuatan aset game, permodelan karakter (character modeling), storyboard, serta produksi konten multimedia kreatif berstandar industri kreatif.<br><br>
+                Didukung oleh studio dan perangkat komputer berspesifikasi tinggi, siswa dilatih langsung untuk memproduksi karya digital yang bernilai seni tinggi dan siap terserap di dunia industri perfilman maupun gim.<br><br>
+                <strong>Peluang Kerja:</strong> 2D/3D Animator, Character Modeler, Video Editor, Motion Graphic Artist, Game Asset Designer, dan Content Creator.`
+            },
+            tkr: {
+                judul: "Teknik Kendaraan Ringan Otomotif (TKRO)",
+                gambar: "https://smkmuhpakem.sch.id/wp-content/uploads/2023/02/P1110599-1024x683.jpg",
+                teks: `Kompetensi Keahlian Teknik Kendaraan Ringan Otomotif (TKRO) menekankan pada penguasaan keahlian di bidang perawatan dan perbaikan kendaraan roda empat (mobil). Peserta didik mempelajari sistem mesin otomotif, sasis dan pemindah tenaga, sistem kelistrikan mobil, serta teknologi kendaraan injeksi modern.<br><br>
+                Praktik kerja ditunjang dengan peralatan bengkel yang lengkap sehingga siswa memiliki keterampilan nyata yang siap diandalkan di dunia kerja otomotif.<br><br>
+                <strong>Peluang Kerja:</strong> Mekanik Mobil Profesional, Service Advisor, Supervisor Bengkel Otomotif, Teknisi Manufaktur Mobil, dan Wirausahawan Bengkel.`
+            },
+            tsm: {
+                judul: "Teknik Sepeda Motor (TSM)",
+                gambar: "https://smkmuhpakem.sch.id/wp-content/uploads/2023/02/DSC01860-1024x580.jpg",
+                teks: `Kompetensi Keahlian Teknik Sepeda Motor (TSM) SMK Muhammadiyah Pakem adalah salah satu kompetensi keahlian Bidang Keahlian Teknologi dan Rekayasa pada Program Keahlian Teknik Otomotif yang menekankan pada perawatan dan perbaikan sepeda motor meliputi mesin, sasis, maupun sistem kelistrikan.<br><br>
+                Kompetensi Keahlian TSM yang ada di SMK Muhammadiyah Pakem ini merupakan binaan dari <strong>PT. Astra Honda Motor</strong> yang sudah grade A sehingga sarana dan prasarananya sesuai dengan industri yaitu bengkel resmi Honda AHASS. Selain itu untuk sarana pembelajaran berupa trainer juga didukung penuh oleh PT. Astra Honda Motor.<br><br>
+                Saat ini Kompetensi Keahlian TSM SMK Muhammadiyah Pakem memiliki 4 laboratorium, yaitu mesin, sasis, kelistrikan, dan laboratorium overhaul mesin sehingga menjadikan kompetensi peserta didik lebih siap ketika menghadapi dunia kerja.<br><br>
+                <strong>Peluang Kerja:</strong> Teknisi sepeda motor, operator pabrik otomotif, modifikator sepeda motor, mekanik balap motor, pengusaha spareparts, manajer bengkel, mekanik alat berat, dan lain-lain.`
+            },
+            pbs: {
+                judul: "Perbankan Syariah (PBS)",
+                gambar: "https://smkmuhpakem.sch.id/wp-content/uploads/2023/02/P1110582-1024x683.jpg",
+                teks: `Kompetensi Perbankan Syariah merupakan bagian dari Bidang Keahlian Bisnis dan Manajemen, Program Studi Keuangan. Perbankan syariah adalah program studi yang mempelajari tentang bidang keuangan dan perbankan yang produk, pelayanan, hingga sistem operasionalnya berlandaskan pada aturan atau hukum syariah islam.<br><br>
+                Lembaga keuangan perbankan syariah memiliki perbedaan dengan bank konvensional pada umumnya, sebab lembaga ini tidak hanya mengelola produk bank seperti menghimpun dan menyalurkan dana tetapi juga memiliki jasa pelayanan seperti pengelolaan zakat, wakaf, dan infaq.<br><br>
+                Pada kompetensi keahlian ini peserta didik mempelajari bagaimana menganalisa dan membuat pembukuan keuangan suatu badan usaha, membuat deskripsi dan melakukan interpretasi terhadap permasalahan akuntansi, dan mampu mengoperasikan software dan periferal yang dapat membantu kegiatan akuntansi.<br><br>
+                <strong>Peluang Kerja:</strong> Pegawai perbankan, staf keuangan syariah, manajer investasi, staf akuntansi, perencana keuangan, analis keuangan.`
+            },
+            dpib: {
+                judul: "Desain Pemodelan dan Informasi Bangunan (DPIB)",
+                gambar: "https://smkmuhpakem.sch.id/wp-content/uploads/2025/10/CRL00034-1024x683.jpg",
+                teks: `Desain Pemodelan dan Informasi Bangunan (DPIB) dulunya dikenal sebagai Teknik Gambar Bangunan. Jurusan ini mempelajari tentang perencanaan arsitektur bangunan, pelaksanaan pembuatan gedung, teknik menggambar digital 2D dan 3D menggunakan software profesional (AutoCAD, SketchUp, Revit), serta perhitungan Rencana Anggaran Biaya (RAB).<br><br>
+                Siswa dilatih untuk mampu merancang bangunan yang kokoh, estetis, efisien, serta sesuai dengan kaidah ilmu teknik sipil dan arsitektur modern.<br><br>
+                <strong>Peluang Kerja:</strong> Drafter Arsitektur/Sipil, Estimator Biaya Bangunan, Asisten Proyek, Surveyor, Konsultan Perencana, dan Kontraktor.`
+            }
+        };
+
+        function bukaDetail(kode) {
+            const info = dataJurusan[kode];
+            const container = document.getElementById('isiDetailJurusan');
+            
+            container.innerHTML = `
+                <h2 style="color: #be185d; margin-bottom: 10px;">${info.judul}</h2>
+                <img src="${info.gambar}" alt="${info.judul}">
+                <p>${info.teks}</p>
+            `;
+
+            document.getElementById('halamanBeranda').style.display = 'none';
+            document.getElementById('halamanDetail').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function tampilBeranda() {
+            document.getElementById('halamanDetail').style.display = 'none';
+            document.getElementById('halamanBeranda').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function cariJurusan() {
+            let input = document.getElementById('inputCari').value.toLowerCase();
+            let cards = document.getElementsByClassName('jurusan-card');
+
+            for (let i = 0; i < cards.length; i++) {
+                let text = cards[i].getAttribute('data-nama');
+                if (text.includes(input)) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+
+        function toggleFaq(element) {
+            element.classList.toggle('active');
+        }
+
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function tampilkanSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            if (index >= slides.length) { slideIndex = 0; }
+            if (index < 0) { slideIndex = slides.length - 1; }
+            slides[slideIndex].classList.add('active');
+        }
+
+        function gantiSlide(arah) {
+            slideIndex += arah;
+            tampilkanSlide(slideIndex);
+        }
+
+        setInterval(() => {
+            slideIndex++;
+            tampilkanSlide(slideIndex);
+        }, 4500);
+    </script>
+
+</body>
+</html>
